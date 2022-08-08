@@ -8,6 +8,18 @@ from tkinter import *
 from functools import partial
 from tkinter import messagebox
 from copy import deepcopy
+import pyttsx3
+
+# initialize pyttsx
+engine = pyttsx3.init()
+
+
+def speak():
+    text = "This is a tic tac toe game that notifies you upon winning"
+
+    engine.setProperty("rate", 180)
+    engine.say(text)
+    engine.runAndWait()
 
 # sign variable to decide the turn of which player
 sign = 0
@@ -231,6 +243,8 @@ def play():
     B1.pack(side='top')
     B2.pack(side='top')
     B3.pack(side='top')
+
+    speak()
     menu.mainloop()
 
 
